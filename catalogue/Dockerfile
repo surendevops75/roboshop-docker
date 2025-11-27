@@ -17,7 +17,7 @@ LABEL com.project="roboshop" \
       created_by="surendra"
 ENV MONGO="true" \
     MONGO_URL="mongodb://mongodb:27017/catalogue"
-COPY --from=build /opt/server /opt/server/
+COPY --from=build --chown=roboshop:roboshop /opt/server /opt/server
 USER roboshop
 CMD ["server.js"]
 ENTRYPOINT [ "node" ]
